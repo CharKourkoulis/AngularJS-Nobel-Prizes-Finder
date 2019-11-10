@@ -1,0 +1,66 @@
+﻿
+<style>
+
+    input[type="text"]{
+        margin:10px;
+    }
+
+    .col-2{
+        padding:20px;
+        margin:10px;
+    }
+
+</style>
+
+<form>
+    <div class="row">
+
+        <div class="col-2">
+            <input type="text" class="form-group" placeholder="year..." ng-model="year" />
+        </div>
+        <div class="col-2">
+            <input type="text" class="form-group" placeholder="yearTo..." ng-model="yearTo" />
+        </div>
+        <div class="col-2">
+            <input type="text" class="form-group" placeholder="category..." ng-model="category" />
+        </div>
+        <div class="col-2">
+            <input type="text" class="form-group" placeholder="Number Of Winners.." ng-model="numberOfLaureates" />
+        </div>
+        <div class="col-2">
+            <button class="btn btn-outline-warning" ng-click="onSubmit()">Submit</button>
+        </div>
+
+    </div>
+</form>
+
+
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th class="w-25">Year</thclass="w-25">
+            <th class="w-50">Category</th>
+            <th class="w-50">Winner</th>
+        </tr>
+
+    </thead>
+    <tbody>
+
+        <tr ng-repeat="item in prizes">
+            <td class="w-25">{{item.year}}</td>
+            <td class="w-50">{{item.category}}</td>
+
+            <td class="w-50">
+                <div>
+                    <ul>
+                        <li ng-mouseover="onLeaurate(x.id)" title="{{bornCountry}}" class="list-unstyled text-left" ng-repeat="x in item.laureates"> {{x.firstname}} - {{x.surname}} </li>
+                    </ul>
+                </div>
+            </td>
+
+        </tr>
+
+    </tbody>
+
+
+</table>
